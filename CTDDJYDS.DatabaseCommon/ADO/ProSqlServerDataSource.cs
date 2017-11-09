@@ -90,6 +90,7 @@ namespace CTDDJYDS.DatabaseCommon
 
         }
         #endregion
+
         #region ExecuteReader
         /// <summary>
         /// 执行命令，返回一个类型化的IDataReader
@@ -104,6 +105,7 @@ namespace CTDDJYDS.DatabaseCommon
 
         }
         #endregion
+
         #region ExecuteScalar
         /// <summary>
         /// 执行命令，返回一个值
@@ -118,6 +120,7 @@ namespace CTDDJYDS.DatabaseCommon
 
         }
         #endregion
+
         #region GetServerTime
         public override DateTime GetServerTime()
         {
@@ -216,10 +219,12 @@ namespace CTDDJYDS.DatabaseCommon
         {
             return new SqlCommand(commandText,this.Connection as SqlConnection , this.Transaction  as SqlTransaction ) as System.Data.IDbCommand;
         }
+
         public override System.Data.IDbDataAdapter CreateDbDataAdapter()
         {
             return new SqlDataAdapter() as System.Data.IDbDataAdapter;
         }
+
         public override System.Data.Common.DbCommandBuilder CreateDbCommandBuilder(System.Data.Common.DbDataAdapter adapter)
         {
             return new SqlCommandBuilder(adapter as SqlDataAdapter);

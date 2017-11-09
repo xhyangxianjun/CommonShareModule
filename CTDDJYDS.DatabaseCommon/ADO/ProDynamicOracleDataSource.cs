@@ -209,6 +209,7 @@ namespace CTDDJYDS.DatabaseCommon
         {
             return DatabasePlatformType.DB_Oracle;
         }
+
         #region ExecuteNonQuery
         /// <summary>
         /// 执行命令，但不返回任何结果
@@ -481,7 +482,7 @@ namespace CTDDJYDS.DatabaseCommon
             if (ds == null)
                 try
                 {
-                    ds = ProDataSourceFactory.CreateInstance(HOST, "", UserId, Password, DatabasePlatformType.DB_Oracle);
+                    ds = ProDataSourceFactory.CreateInstance(HOST, DatabasePlatformType.DB_Oracle, "", UserId, Password);
                     ds.Open();
                 }
                 catch (Exception ex) { ds = null; exMsg = exMsg + "\n" + ex.Message; }

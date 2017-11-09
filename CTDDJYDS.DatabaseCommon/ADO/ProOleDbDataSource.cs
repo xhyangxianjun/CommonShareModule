@@ -28,9 +28,7 @@ namespace CTDDJYDS.DatabaseCommon
             this.Open();
             this._transaction = null;
         }
-        /// <summary>
-        /// 
-        /// </summary>
+
         /// <param name="connectionString">规范的连接串</param>
 		public ProOleDataSource(string connectionString)
 		{
