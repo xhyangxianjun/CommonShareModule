@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F60D48BD-53CA-4CB8-9F94-A981928B0A40}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZedGraph</RootNamespace>
+    <AssemblyName>ZedGraph</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArrowObj.cs" />
+    <Compile Include="AxisLabel.cs" />
+    <Compile Include="Axis\Axis.cs" />
+    <Compile Include="Axis\X2Axis.cs" />
+    <Compile Include="Axis\XAxis.cs" />
+    <Compile Include="Axis\Y2Axis.cs" />
+    <Compile Include="Axis\Y2AxisList.cs" />
+    <Compile Include="Axis\YAxis.cs" />
+    <Compile Include="Axis\YAxisList.cs" />
+    <Compile Include="Bar.cs" />
+    <Compile Include="BarItem.cs" />
+    <Compile Include="BarSettings.cs" />
+    <Compile Include="BasicArrayPointList.cs" />
+    <Compile Include="Border.cs" />
+    <Compile Include="BoxObj.cs" />
+    <Compile Include="Chart.cs" />
+    <Compile Include="CollectionPlus.cs" />
+    <Compile Include="ColorSymbolRotator.cs" />
+    <Compile Include="CurveItem.cs" />
+    <Compile Include="CurveList.cs" />
+    <Compile Include="DataSourcePointList.cs" />
+    <Compile Include="DateAsOrdinalScale.cs" />
+    <Compile Include="ErrorBar.cs" />
+    <Compile Include="ErrorBarItem.cs" />
+    <Compile Include="ExponentScale.cs" />
+    <Compile Include="Fill.cs" />
+    <Compile Include="FontSpec.cs" />
+    <Compile Include="GapLabel.cs" />
+    <Compile Include="GasGaugeNeedle.cs" />
+    <Compile Include="GasGaugeRegion.cs" />
+    <Compile Include="GraphObj.cs" />
+    <Compile Include="GraphObjList.cs" />
+    <Compile Include="GraphPane.cs" />
+    <Compile Include="HiLowBar.cs" />
+    <Compile Include="HiLowBarItem.cs" />
+    <Compile Include="HSBColor.cs" />
+    <Compile Include="ImageObj.cs" />
+    <Compile Include="JapaneseCandleStick.cs" />
+    <Compile Include="JapaneseCandleStickItem.cs" />
+    <Compile Include="Label.cs" />
+    <Compile Include="Legend.cs" />
+    <Compile Include="Line.cs" />
+    <Compile Include="LinearAsOrdinalScale.cs" />
+    <Compile Include="LineBase.cs" />
+    <Compile Include="LineItem.cs" />
+    <Compile Include="LineObj.cs" />
+    <Compile Include="Link.cs" />
+    <Compile Include="Location.cs" />
+    <Compile Include="MajorGrid.cs" />
+    <Compile Include="MajorTic.cs" />
+    <Compile Include="Margin.cs" />
+    <Compile Include="MasterPane.cs" />
+    <Compile Include="MinorGrid.cs" />
+    <Compile Include="MinorTic.cs" />
+    <Compile Include="NoDupePointList.cs" />
+    <Compile Include="OHLCBar.cs" />
+    <Compile Include="OHLCBarItem.cs" />
+    <Compile Include="OrdinalScale.cs" />
+    <Compile Include="PaneBase.cs" />
+    <Compile Include="PaneLayoutMgr.cs" />
+    <Compile Include="PaneList.cs" />
+    <Compile Include="PieItem.cs" />
+    <Compile Include="PointD.cs" />
+    <Compile Include="Point\FilteredPointList.cs" />
+    <Compile Include="Point\IPointList.cs" />
+    <Compile Include="Point\IPointListEdit.cs" />
+    <Compile Include="Point\PointPair.cs" />
+    <Compile Include="Point\PointPair4.cs" />
+    <Compile Include="Point\PointPairBase.cs" />
+    <Compile Include="Point\PointPairCV.cs" />
+    <Compile Include="Point\PointPairList.cs" />
+    <Compile Include="Point\RadarPointList.cs" />
+    <Compile Include="Point\RollingPointPairList.cs" />
+    <Compile Include="Point\SampleMultiPointList.cs" />
+    <Compile Include="Point\SamplePointList.cs" />
+    <Compile Include="Point\StockPointList.cs" />
+    <Compile Include="PolyObj.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scale\DateScale.cs" />
+    <Compile Include="Scale\EllipseObj.cs" />
+    <Compile Include="Scale\LinearScale.cs" />
+    <Compile Include="Scale\LogScale.cs" />
+    <Compile Include="Scale\Scale.cs" />
+    <Compile Include="Scale\ScaleState.cs" />
+    <Compile Include="Scale\ScaleStateList.cs" />
+    <Compile Include="Scale\TextScale.cs" />
+    <Compile Include="ScrollRange.cs" />
+    <Compile Include="ScrollRangeList.cs" />
+    <Compile Include="Selection.cs" />
+    <Compile Include="StickItem.cs" />
+    <Compile Include="StockPt.cs" />
+    <Compile Include="Symbol.cs" />
+    <Compile Include="TextObj.cs" />
+    <Compile Include="Types.cs" />
+    <Compile Include="ValueHandler.cs" />
+    <Compile Include="XDate.cs" />
+    <Compile Include="ZedGraphControl.ContextMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZedGraphControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZedGraphControl.Designer.cs">
+      <DependentUpon>ZedGraphControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZedGraphControl.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZedGraphControl.Printing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZedGraphControl.Properties.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZedGraphControl.ScrollBars.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZedGraphException.cs" />
+    <Compile Include="ZedGraphStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZedGraphStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ZoomState.cs" />
+    <Compile Include="ZoomStateStack.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ZedGraphControl.resx">
+      <DependentUpon>ZedGraphControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZedGraphStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ZedGraphStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZedGraphStrings.zh-CHS.resx">
+      <DependentUpon>ZedGraphStrings.resx</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
