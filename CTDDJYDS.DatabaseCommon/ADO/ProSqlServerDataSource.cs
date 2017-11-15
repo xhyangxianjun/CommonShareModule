@@ -121,6 +121,14 @@ namespace CTDDJYDS.DatabaseCommon
         }
         #endregion
 
+        #region ExecuteReader
+        public XmlReader ExecuteXmlReader(string commandText)
+        {
+            SqlCommand command = new SqlCommand(commandText, this._connection, this._transaction);
+            return command.ExecuteXmlReader();
+        }
+        #endregion
+
         #region GetServerTime
         public override DateTime GetServerTime()
         {

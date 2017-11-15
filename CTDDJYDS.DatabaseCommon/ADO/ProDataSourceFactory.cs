@@ -93,7 +93,7 @@ namespace CTDDJYDS.DatabaseCommon
                 case DatabasePlatformType.SQLServer2012:
                 case DatabasePlatformType.SQLServer2014:
                 case DatabasePlatformType.SQLServer2016:
-                    if(string.IsNullOrEmpty(dataSourceName))//Windows身份验证模式
+                    if(string.IsNullOrEmpty(dataSourceName))//Windows身份验证模式，如果是 sql express则用 server=./sqlexpress;
                         conString = string.Format("server=.;database={0};integrated security=SSPI", catalog);
                     else
                         conString = "Data Source=" + dataSourceName + ";Initial Catalog=" + catalog + ";User ID=" + username + ";Password=" + password;
