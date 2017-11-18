@@ -121,7 +121,7 @@ namespace CTDDJYDS.DatabaseCommon
         }
         #endregion
 
-        #region ExecuteReader
+        #region ExecuteXmlReader
         public XmlReader ExecuteXmlReader(string commandText)
         {
             SqlCommand command = new SqlCommand(commandText, this._connection, this._transaction);
