@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTDDJYDS.DatabaseCommon", "CTDDJYDS.DatabaseCommon\CTDDJYDS.DatabaseCommon.csproj", "{D6F78A30-9FF6-44D2-8307-13DE351E1126}"
 EndProject
@@ -18,6 +18,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFVisifireCharts", "WPFVisifireCharts\WPFVisifireCharts.csproj", "{CF8E563B-5C37-47C3-8431-056EE13E6A00}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFVisifireChartsApp", "CommonShareTest\WPFVisifireChartsApp\WPFVisifireChartsApp.csproj", "{8FB59643-9EB8-4C87-8F87-C1C3BE2E5470}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ctddjyds.MetroChart", "ctddjyds.MetroChart\ctddjyds.MetroChart.csproj", "{FA286411-E476-4BD0-ABE9-7AE69226069C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ctddjyds.TestApplication", "CommonShareTest\ctddjyds.TestApplication\ctddjyds.TestApplication.csproj", "{ADC26515-57B3-4232-80E4-DEC6F28856C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +87,22 @@ Global
 		{8FB59643-9EB8-4C87-8F87-C1C3BE2E5470}.Silverlight|Any CPU.Build.0 = Silverlight|Any CPU
 		{8FB59643-9EB8-4C87-8F87-C1C3BE2E5470}.WPF|Any CPU.ActiveCfg = WPF|Any CPU
 		{8FB59643-9EB8-4C87-8F87-C1C3BE2E5470}.WPF|Any CPU.Build.0 = WPF|Any CPU
+		{FA286411-E476-4BD0-ABE9-7AE69226069C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA286411-E476-4BD0-ABE9-7AE69226069C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA286411-E476-4BD0-ABE9-7AE69226069C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA286411-E476-4BD0-ABE9-7AE69226069C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA286411-E476-4BD0-ABE9-7AE69226069C}.Silverlight|Any CPU.ActiveCfg = Release|Any CPU
+		{FA286411-E476-4BD0-ABE9-7AE69226069C}.Silverlight|Any CPU.Build.0 = Release|Any CPU
+		{FA286411-E476-4BD0-ABE9-7AE69226069C}.WPF|Any CPU.ActiveCfg = Release|Any CPU
+		{FA286411-E476-4BD0-ABE9-7AE69226069C}.WPF|Any CPU.Build.0 = Release|Any CPU
+		{ADC26515-57B3-4232-80E4-DEC6F28856C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADC26515-57B3-4232-80E4-DEC6F28856C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADC26515-57B3-4232-80E4-DEC6F28856C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADC26515-57B3-4232-80E4-DEC6F28856C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADC26515-57B3-4232-80E4-DEC6F28856C5}.Silverlight|Any CPU.ActiveCfg = Release|Any CPU
+		{ADC26515-57B3-4232-80E4-DEC6F28856C5}.Silverlight|Any CPU.Build.0 = Release|Any CPU
+		{ADC26515-57B3-4232-80E4-DEC6F28856C5}.WPF|Any CPU.ActiveCfg = Release|Any CPU
+		{ADC26515-57B3-4232-80E4-DEC6F28856C5}.WPF|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +111,7 @@ Global
 		{41E1CFDE-BFA0-4274-9267-B129B46BC312} = {8CD3AB5B-57A4-4370-8E3B-3D7A31FD4049}
 		{B93092FC-CB78-4F95-A9DE-A94E1464EC39} = {8CD3AB5B-57A4-4370-8E3B-3D7A31FD4049}
 		{8FB59643-9EB8-4C87-8F87-C1C3BE2E5470} = {8CD3AB5B-57A4-4370-8E3B-3D7A31FD4049}
+		{ADC26515-57B3-4232-80E4-DEC6F28856C5} = {8CD3AB5B-57A4-4370-8E3B-3D7A31FD4049}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6477FF48-E0DC-409B-A459-AE4CD78C12AD}
