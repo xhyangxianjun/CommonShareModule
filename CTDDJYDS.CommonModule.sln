@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTDDJYDS.DatabaseCommon", "CTDDJYDS.DatabaseCommon\CTDDJYDS.DatabaseCommon.csproj", "{D6F78A30-9FF6-44D2-8307-13DE351E1126}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTDDJYDS.Database.Common", "CTDDJYDS.DatabaseCommon\CTDDJYDS.Database.Common.csproj", "{D6F78A30-9FF6-44D2-8307-13DE351E1126}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThoughtWorks.QRCode", "ThoughtWorks.QRCode\ThoughtWorks.QRCode.csproj", "{E98126B2-AF17-4783-96B9-856D6744DCA3}"
 EndProject
@@ -22,6 +22,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ctddjyds.MetroChart", "ctddjyds.MetroChart\ctddjyds.MetroChart.csproj", "{FA286411-E476-4BD0-ABE9-7AE69226069C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ctddjyds.TestApplication", "CommonShareTest\ctddjyds.TestApplication\ctddjyds.TestApplication.csproj", "{ADC26515-57B3-4232-80E4-DEC6F28856C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ctddjyds.GraphicsModel", "ctddjyds.GraphicsModel\ctddjyds.GraphicsModel.csproj", "{013A5814-131D-4350-BD1B-A553A9D02C86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTDDJYDS.CommonModule", "CTDDJYDS.CommonModule\CTDDJYDS.CommonModule.csproj", "{785B5C3A-84FE-446D-8F55-3ED0974B8A13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastReflectionLib", "FastReflection\FastReflectionLib.csproj", "{CB5CDFC1-C46C-413E-A12F-94464BAFB4C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -103,6 +109,30 @@ Global
 		{ADC26515-57B3-4232-80E4-DEC6F28856C5}.Silverlight|Any CPU.Build.0 = Release|Any CPU
 		{ADC26515-57B3-4232-80E4-DEC6F28856C5}.WPF|Any CPU.ActiveCfg = Release|Any CPU
 		{ADC26515-57B3-4232-80E4-DEC6F28856C5}.WPF|Any CPU.Build.0 = Release|Any CPU
+		{013A5814-131D-4350-BD1B-A553A9D02C86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{013A5814-131D-4350-BD1B-A553A9D02C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{013A5814-131D-4350-BD1B-A553A9D02C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{013A5814-131D-4350-BD1B-A553A9D02C86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{013A5814-131D-4350-BD1B-A553A9D02C86}.Silverlight|Any CPU.ActiveCfg = Release|Any CPU
+		{013A5814-131D-4350-BD1B-A553A9D02C86}.Silverlight|Any CPU.Build.0 = Release|Any CPU
+		{013A5814-131D-4350-BD1B-A553A9D02C86}.WPF|Any CPU.ActiveCfg = Release|Any CPU
+		{013A5814-131D-4350-BD1B-A553A9D02C86}.WPF|Any CPU.Build.0 = Release|Any CPU
+		{785B5C3A-84FE-446D-8F55-3ED0974B8A13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{785B5C3A-84FE-446D-8F55-3ED0974B8A13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{785B5C3A-84FE-446D-8F55-3ED0974B8A13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{785B5C3A-84FE-446D-8F55-3ED0974B8A13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{785B5C3A-84FE-446D-8F55-3ED0974B8A13}.Silverlight|Any CPU.ActiveCfg = Release|Any CPU
+		{785B5C3A-84FE-446D-8F55-3ED0974B8A13}.Silverlight|Any CPU.Build.0 = Release|Any CPU
+		{785B5C3A-84FE-446D-8F55-3ED0974B8A13}.WPF|Any CPU.ActiveCfg = Release|Any CPU
+		{785B5C3A-84FE-446D-8F55-3ED0974B8A13}.WPF|Any CPU.Build.0 = Release|Any CPU
+		{CB5CDFC1-C46C-413E-A12F-94464BAFB4C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB5CDFC1-C46C-413E-A12F-94464BAFB4C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB5CDFC1-C46C-413E-A12F-94464BAFB4C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB5CDFC1-C46C-413E-A12F-94464BAFB4C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB5CDFC1-C46C-413E-A12F-94464BAFB4C6}.Silverlight|Any CPU.ActiveCfg = Release|Any CPU
+		{CB5CDFC1-C46C-413E-A12F-94464BAFB4C6}.Silverlight|Any CPU.Build.0 = Release|Any CPU
+		{CB5CDFC1-C46C-413E-A12F-94464BAFB4C6}.WPF|Any CPU.ActiveCfg = Release|Any CPU
+		{CB5CDFC1-C46C-413E-A12F-94464BAFB4C6}.WPF|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

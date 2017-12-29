@@ -3,8 +3,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Xml;
 
-
-namespace CTDDJYDS.DatabaseCommon
+namespace CTDDJYDS.Database.Common
 {
 		/// <summary>
 	/// 数据连接对象类---仅连接access数据库
@@ -272,13 +271,14 @@ namespace CTDDJYDS.DatabaseCommon
             return new OleDbCommandBuilder(adapter as OleDbDataAdapter);
         }
 
-        public override string UserName
+        protected override DBConfigurationSection GetPlatformInstance()
+        {
+            return null;
+        }
+
+        public override string _User
         {
             get { return ""; }
-        }
-        public override string Service
-        {
-            get { return this._connection.DataSource; }
         }
 	}
 }

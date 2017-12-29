@@ -2,7 +2,7 @@ using System;
 using System.Data.OleDb;
 using System.Data.Odbc;
 
-namespace CTDDJYDS.DatabaseCommon
+namespace CTDDJYDS.Database.Common
 {
     public static  class ProDataSourceFactory
     {
@@ -28,10 +28,7 @@ namespace CTDDJYDS.DatabaseCommon
 		    ProDataSource dataSource = null;
             switch (databaseType) 
 		    {
-                case DatabasePlatformType.SQLServer2008:
-                case DatabasePlatformType.SQLServer2012:
-                case DatabasePlatformType.SQLServer2014:
-                case DatabasePlatformType.SQLServer2016:
+                case DatabasePlatformType.SQLServer:
                     dataSource = new ProSqlServerDataSource(connectionString);
 				    break;
                 case DatabasePlatformType.DB_Oracle:
@@ -53,11 +50,13 @@ namespace CTDDJYDS.DatabaseCommon
             string conString = "";
             switch (site.dataSourceType)
             {
-                case DatabasePlatformType.SQLServer2008:
-                case DatabasePlatformType.SQLServer2012:
-                case DatabasePlatformType.SQLServer2014:
-                case DatabasePlatformType.SQLServer2016:
-                    conString = "Data Source=" + site.dataSourceName + ";Initial Catalog=" + site.dbName + ";User ID=" + site.userID + ";Password=" + site.passWord;
+                case DatabasePlatformType.SQLServer:
+                    if (string.IsNullOrEmpty(site.dataSourceName) && string.IsNullOrEmpty(site.userID))//Windows身份验证模式，使用默认数据库实例;
+                        conString = string.Format("server=.;database={0};integrated security=SSPI", site.dbName);
+                    else if (string.IsNullOrEmpty(site.userID))//如果不使用默认数据库实例，则用 server =./sid;
+                        conString = string.Format("server=./{0};database={1};integrated security=SSPI", site.dataSourceName, site.dbName);
+                    else//dataSourceName 一般为  ip/sid 模式
+                        conString = string.Format("Data Source={0};Initial Catalog={1};User ID={2};Password={3}", site.dataSourceName, site.dbName, site.userID, site.passWord);
                     break;
                 case DatabasePlatformType.DB_Oracle:
                     conString = "Data Source=" + site.dataSourceName + ";User ID=" + site.userID + ";Password=" + site.passWord;                    
@@ -89,14 +88,13 @@ namespace CTDDJYDS.DatabaseCommon
             string conString = "";
             switch (dbType)
 		    {
-                case DatabasePlatformType.SQLServer2008:
-                case DatabasePlatformType.SQLServer2012:
-                case DatabasePlatformType.SQLServer2014:
-                case DatabasePlatformType.SQLServer2016:
-                    if(string.IsNullOrEmpty(dataSourceName))//Windows身份验证模式，如果是 sql express则用 server=./sqlexpress;
+                case DatabasePlatformType.SQLServer:
+                    if(string.IsNullOrEmpty(dataSourceName) && string.IsNullOrEmpty(username))//Windows身份验证模式，使用默认数据库实例;
                         conString = string.Format("server=.;database={0};integrated security=SSPI", catalog);
-                    else
-                        conString = "Data Source=" + dataSourceName + ";Initial Catalog=" + catalog + ";User ID=" + username + ";Password=" + password;
+                    else if(string.IsNullOrEmpty(username))//如果不使用默认数据库实例，则用 server =./sid;
+                        conString = string.Format("server=./{0};database={1};integrated security=SSPI", dataSourceName, catalog);
+                    else//dataSourceName 一般为  ip/sid 模式
+                        conString =string.Format("Data Source={0};Initial Catalog={1};User ID={2};Password={3}", dataSourceName, catalog, username, password);
 				    break;
                 case DatabasePlatformType.DB_Oracle:
                     conString = "Data Source=" + dataSourceName + ";User ID=" + username + ";Password=" + password;

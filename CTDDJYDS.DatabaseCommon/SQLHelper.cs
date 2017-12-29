@@ -4,7 +4,7 @@ using System.Xml;
 using System.Data.SqlClient;
 using System.Collections;
 
-namespace CTDDJYDS.DatabaseCommon
+namespace CTDDJYDS.Database.Common
 {
     /// <summary> 
     /// SqlServer数据访问帮助类 

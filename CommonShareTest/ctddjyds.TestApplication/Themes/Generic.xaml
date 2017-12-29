@@ -589,7 +589,6 @@
     </Style>
 
     <DataTemplate x:Key="All">
-
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
@@ -809,7 +808,6 @@
 
     <DataTemplate x:Key="Pie">
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-
             <chart:PieChart  
                 Style="{StaticResource ChartStyleFixedSize}"
                 ChartTitle="Single fixed Series"
@@ -895,7 +893,6 @@
 
     <DataTemplate x:Key="Doughnut">
         <StackPanel Orientation="Horizontal">
-
             <chart:DoughnutChart  
                 Style="{StaticResource ChartStyleFixedSize}"
                 ChartTitle="Doughnut Chart Single Series"                                
@@ -1447,7 +1444,8 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Border Grid.Column="0">
-                    <Button   
+                    <Button
+                        x:Name="goBack"
                         Foreground="{Binding Path=MainForeground}"
                         Command="{Binding Path=GoBackCommand}"
                         VerticalAlignment="Bottom"
@@ -1675,7 +1673,6 @@
         </Grid>
     </DataTemplate>
 
-  
     <Style TargetType="local:PortablePopup">
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />

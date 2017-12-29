@@ -12,7 +12,7 @@ using System.Security;
 //using Oracle.DataAccess.Client;
 //using Oracle.DataAccess.Types;
 
-namespace CTDDJYDS.DatabaseCommon
+namespace CTDDJYDS.Database.Common
 {
     public class ProDynamicOracleDataSource : ProDataSource
     {
@@ -491,8 +491,13 @@ namespace CTDDJYDS.DatabaseCommon
                 throw new ApplicationException(exMsg);
             return ds;
         }
+
+        protected override DBConfigurationSection GetPlatformInstance()
+        {
+            return null;
+        }
         #endregion
-        public override string UserName
+        public override string _User
         {
             get {
                 string[] a = this.Connection.ConnectionString.Split(new char[] { ';' });
@@ -507,7 +512,7 @@ namespace CTDDJYDS.DatabaseCommon
                 return "";
             }
         }
-        public override string Service
+        public override string _Server
         {
             get {
                 string[] a = this.Connection.ConnectionString.Split(new char[] { ';' });

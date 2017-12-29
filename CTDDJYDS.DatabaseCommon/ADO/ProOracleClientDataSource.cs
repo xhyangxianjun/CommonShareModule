@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.OracleClient;
 using System.Xml;
 
-namespace CTDDJYDS.DatabaseCommon
+namespace CTDDJYDS.Database.Common
 {
     /// <summary>
     /// 必须安装Oracle客户端,建议Oracle的版本小于11使用此种方式
@@ -274,13 +274,9 @@ namespace CTDDJYDS.DatabaseCommon
                 throw new ApplicationException("创建OracleCommandBuilder失败");
             return c;
         }
-        public override string UserName
+        protected override DBConfigurationSection GetPlatformInstance()
         {
-            get { throw new NotImplementedException(); }
+            return null;
         }
-        public override string Service
-        {
-            get { throw new NotImplementedException(); }
-        }
-	}
+    }
 }

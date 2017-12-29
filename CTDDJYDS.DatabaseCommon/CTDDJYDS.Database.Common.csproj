@@ -7,8 +7,8 @@
     <ProjectGuid>{D6F78A30-9FF6-44D2-8307-13DE351E1126}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CTDDJYDS.DatabaseCommon</RootNamespace>
-    <AssemblyName>CTDDJYDS.DatabaseCommon</AssemblyName>
+    <RootNamespace>CTDDJYDS.Database.Common</RootNamespace>
+    <AssemblyName>CTDDJYDS.Database.Common</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -37,8 +37,10 @@
       <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,13 +54,25 @@
     <Compile Include="ADO\ProOleDbDataSource.cs" />
     <Compile Include="ADO\ProOracleClientDataSource.cs" />
     <Compile Include="ADO\ProSqlServerDataSource.cs" />
+    <Compile Include="BackupItem.cs" />
     <Compile Include="DatabaseCommon.cs" />
-    <Compile Include="IDBPlatformCommon.cs" />
+    <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="DbConfigSection\ConfigurationSection_SQLSever.cs" />
+    <Compile Include="DbConfigSection\DBConfigurationSection.cs" />
+    <Compile Include="NHibernateHelper.cs" />
+    <Compile Include="ADO\IDBPlatformCommon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLHelper.cs" />
+    <Compile Include="SQLScriptParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CTDDJYDS.CommonModule\CTDDJYDS.CommonModule.csproj">
+      <Project>{785b5c3a-84fe-446d-8f55-3ed0974b8a13}</Project>
+      <Name>CTDDJYDS.CommonModule</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
