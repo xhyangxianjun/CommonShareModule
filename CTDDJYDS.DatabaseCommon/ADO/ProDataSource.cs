@@ -277,8 +277,11 @@ namespace CTDDJYDS.Database.Common
                 return string.Empty;
             }
         }
-
-        protected virtual void InternalInitialize(string asm)
+        /// <summary>
+        /// assemblyName：映射文件程序集位置
+        /// </summary>
+        /// <param name="asm"></param>
+        protected virtual void InternalInitialize(string assemblyName)
         {
         }
 
