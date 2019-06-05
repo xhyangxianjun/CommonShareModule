@@ -6,7 +6,6 @@ using log4net.Core;
 using log4net.Layout.Pattern;
 using log4net.Util;
 using log4net.Layout;
-using TGLog.Layout;
 
 namespace TGLog.ExpandLayout
 {
