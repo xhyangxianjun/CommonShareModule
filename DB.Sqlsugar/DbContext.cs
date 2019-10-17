@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace DB.Sqlsugar
 {
+    /// <summary>
+    /// 继承类不允许使用静态对象，保证每次都NEW出来
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class DbContext<T> where T : class, new()
     {
         public DbContext()

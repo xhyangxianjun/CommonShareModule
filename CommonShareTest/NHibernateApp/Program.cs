@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace NHibernateApp
+namespace SocketApp
 {
     static class Program
     {
@@ -15,7 +15,7 @@ namespace NHibernateApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new NHibernateForm());
+            Application.Run(new MainForm());
         }
     }
 }

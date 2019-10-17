@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTDDJYDS.Database.Common", "CTDDJYDS.DatabaseCommon\CTDDJYDS.Database.Common.csproj", "{D6F78A30-9FF6-44D2-8307-13DE351E1126}"
 EndProject
@@ -11,13 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{8CD3AB5B-5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QRCodeSampleApp", "CommonShareTest\QRCodeSampleApp\QRCodeSampleApp.csproj", "{41E1CFDE-BFA0-4274-9267-B129B46BC312}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateApp", "CommonShareTest\NHibernateApp\NHibernateApp.csproj", "{B93092FC-CB78-4F95-A9DE-A94E1464EC39}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketApp", "CommonShareTest\NHibernateApp\SocketApp.csproj", "{B93092FC-CB78-4F95-A9DE-A94E1464EC39}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZedGraph", "ZedGraph\ZedGraph.csproj", "{F60D48BD-53CA-4CB8-9F94-A981928B0A40}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFVisifireCharts", "WPFVisifireCharts\WPFVisifireCharts.csproj", "{CF8E563B-5C37-47C3-8431-056EE13E6A00}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFVisifireChartsApp", "CommonShareTest\WPFVisifireChartsApp\WPFVisifireChartsApp.csproj", "{8FB59643-9EB8-4C87-8F87-C1C3BE2E5470}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ctddjyds.MetroChart", "ctddjyds.MetroChart\ctddjyds.MetroChart.csproj", "{FA286411-E476-4BD0-ABE9-7AE69226069C}"
 EndProject
@@ -34,6 +30,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperApp", "DapperApp\DapperApp.csproj", "{91D36BD4-075D-4831-B747-91116D49301F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB.Sqlsugar", "DB.Sqlsugar\DB.Sqlsugar.csproj", "{CB6CF7A9-9A2E-41A3-849F-8810C20CCEB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfOpenCV", "CommonShareTest\WpfOpenCV-master\WpfOpenCV.csproj", "{530FE9F7-A834-4780-8799-B096007BF7C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,22 +81,6 @@ Global
 		{F60D48BD-53CA-4CB8-9F94-A981928B0A40}.Silverlight|Any CPU.Build.0 = Release|Any CPU
 		{F60D48BD-53CA-4CB8-9F94-A981928B0A40}.WPF|Any CPU.ActiveCfg = Release|Any CPU
 		{F60D48BD-53CA-4CB8-9F94-A981928B0A40}.WPF|Any CPU.Build.0 = Release|Any CPU
-		{CF8E563B-5C37-47C3-8431-056EE13E6A00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF8E563B-5C37-47C3-8431-056EE13E6A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF8E563B-5C37-47C3-8431-056EE13E6A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF8E563B-5C37-47C3-8431-056EE13E6A00}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF8E563B-5C37-47C3-8431-056EE13E6A00}.Silverlight|Any CPU.ActiveCfg = Silverlight|Any CPU
-		{CF8E563B-5C37-47C3-8431-056EE13E6A00}.Silverlight|Any CPU.Build.0 = Silverlight|Any CPU
-		{CF8E563B-5C37-47C3-8431-056EE13E6A00}.WPF|Any CPU.ActiveCfg = WPF|Any CPU
-		{CF8E563B-5C37-47C3-8431-056EE13E6A00}.WPF|Any CPU.Build.0 = WPF|Any CPU
-		{8FB59643-9EB8-4C87-8F87-C1C3BE2E5470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8FB59643-9EB8-4C87-8F87-C1C3BE2E5470}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8FB59643-9EB8-4C87-8F87-C1C3BE2E5470}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8FB59643-9EB8-4C87-8F87-C1C3BE2E5470}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8FB59643-9EB8-4C87-8F87-C1C3BE2E5470}.Silverlight|Any CPU.ActiveCfg = Silverlight|Any CPU
-		{8FB59643-9EB8-4C87-8F87-C1C3BE2E5470}.Silverlight|Any CPU.Build.0 = Silverlight|Any CPU
-		{8FB59643-9EB8-4C87-8F87-C1C3BE2E5470}.WPF|Any CPU.ActiveCfg = WPF|Any CPU
-		{8FB59643-9EB8-4C87-8F87-C1C3BE2E5470}.WPF|Any CPU.Build.0 = WPF|Any CPU
 		{FA286411-E476-4BD0-ABE9-7AE69226069C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FA286411-E476-4BD0-ABE9-7AE69226069C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA286411-E476-4BD0-ABE9-7AE69226069C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -163,6 +145,14 @@ Global
 		{CB6CF7A9-9A2E-41A3-849F-8810C20CCEB9}.Silverlight|Any CPU.Build.0 = Release|Any CPU
 		{CB6CF7A9-9A2E-41A3-849F-8810C20CCEB9}.WPF|Any CPU.ActiveCfg = Release|Any CPU
 		{CB6CF7A9-9A2E-41A3-849F-8810C20CCEB9}.WPF|Any CPU.Build.0 = Release|Any CPU
+		{530FE9F7-A834-4780-8799-B096007BF7C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{530FE9F7-A834-4780-8799-B096007BF7C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{530FE9F7-A834-4780-8799-B096007BF7C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{530FE9F7-A834-4780-8799-B096007BF7C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{530FE9F7-A834-4780-8799-B096007BF7C0}.Silverlight|Any CPU.ActiveCfg = Release|Any CPU
+		{530FE9F7-A834-4780-8799-B096007BF7C0}.Silverlight|Any CPU.Build.0 = Release|Any CPU
+		{530FE9F7-A834-4780-8799-B096007BF7C0}.WPF|Any CPU.ActiveCfg = Release|Any CPU
+		{530FE9F7-A834-4780-8799-B096007BF7C0}.WPF|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -170,9 +160,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{41E1CFDE-BFA0-4274-9267-B129B46BC312} = {8CD3AB5B-57A4-4370-8E3B-3D7A31FD4049}
 		{B93092FC-CB78-4F95-A9DE-A94E1464EC39} = {8CD3AB5B-57A4-4370-8E3B-3D7A31FD4049}
-		{8FB59643-9EB8-4C87-8F87-C1C3BE2E5470} = {8CD3AB5B-57A4-4370-8E3B-3D7A31FD4049}
 		{ADC26515-57B3-4232-80E4-DEC6F28856C5} = {8CD3AB5B-57A4-4370-8E3B-3D7A31FD4049}
 		{91D36BD4-075D-4831-B747-91116D49301F} = {8CD3AB5B-57A4-4370-8E3B-3D7A31FD4049}
+		{530FE9F7-A834-4780-8799-B096007BF7C0} = {8CD3AB5B-57A4-4370-8E3B-3D7A31FD4049}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6477FF48-E0DC-409B-A459-AE4CD78C12AD}
