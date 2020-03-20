@@ -7,8 +7,8 @@
     <ProjectGuid>{FA286411-E476-4BD0-ABE9-7AE69226069C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ctddjyds.MetroChart</RootNamespace>
-    <AssemblyName>ctddjyds.MetroChart</AssemblyName>
+    <RootNamespace>CTDDJYDS.MetroChart</RootNamespace>
+    <AssemblyName>CTDDJYDS.MetroChart</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>

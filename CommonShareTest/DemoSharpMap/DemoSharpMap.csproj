@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4154CAD9-93E5-437A-AE93-CF8AA44DBDFE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DemoSharpMap</RootNamespace>
+    <AssemblyName>DemoSharpMap</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BruTile, Version=0.18.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\BruTile.dll</HintPath>
+    </Reference>
+    <Reference Include="BruTile.Desktop, Version=0.18.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\BruTile.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="BruTile.MbTiles, Version=0.18.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\BruTile.MbTiles.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GeoAPI, Version=1.7.4.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\GeoAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite, Version=1.14.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\NetTopologySuite.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjNet, Version=1.3.2.0, Culture=neutral, PublicKeyToken=a1f5bdcd9c6f5740, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\ProjNet.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpMap, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\SharpMap.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpMap.Extensions, Version=1.2.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\SharpMap.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpMap.Layers.BruTile, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\SharpMap.Layers.BruTile.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpMap.UI, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\SharpMap.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SharpMapHelper.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="GeoData\Cities.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\Henan.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\MapInfo\citiesMapInfo.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\MapInfo\citiesMapInfo.id">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\MapInfo\citiesMapInfo.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\MapInfo\citiesMapInfo.tab">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\MapInfo\countriesMapInfo.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\MapInfo\countriesMapInfo.id">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\MapInfo\countriesMapInfo.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\MapInfo\countriesMapInfo.tab">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\MapInfo\riversMapInfo.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\MapInfo\riversMapInfo.id">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\MapInfo\riversMapInfo.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\MapInfo\riversMapInfo.tab">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\cities.DBF">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\cities.prj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\cities.SHP">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\cities.shp.sidx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\cities.SHX">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\countries.dbf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\countries.prj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\countries.shp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\countries.shp.sidx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\countries.shx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\rivers.dbf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\rivers.prj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\rivers.shp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\rivers.shp.sidx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\rivers.shx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\shp_textonpath\DeMo_Quan5.dbf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\shp_textonpath\DeMo_Quan5.prj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\shp_textonpath\DeMo_Quan5.sbn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\shp_textonpath\DeMo_Quan5.sbx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\shp_textonpath\DeMo_Quan5.shp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeoData\World\shp_textonpath\DeMo_Quan5.shx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Images\redflag.gif" />
+    <Content Include="Images\save.gif" />
+    <Content Include="Lib\BruTile.Desktop.dll" />
+    <Content Include="Lib\BruTile.dll" />
+    <Content Include="Lib\BruTile.MbTiles.dll" />
+    <Content Include="Lib\Common.Logging.Core.dll" />
+    <Content Include="Lib\Common.Logging.Core.xml" />
+    <Content Include="Lib\Common.Logging.dll" />
+    <Content Include="Lib\Common.Logging.Log4Net1213.dll" />
+    <Content Include="Lib\Common.Logging.Log4Net1213.xml" />
+    <Content Include="Lib\Common.Logging.xml" />
+    <Content Include="Lib\freexl.dll" />
+    <Content Include="Lib\gdal111.dll" />
+    <Content Include="Lib\gdalconst_csharp.dll" />
+    <Content Include="Lib\gdalconst_wrap.dll" />
+    <Content Include="Lib\gdal_csharp.dll" />
+    <Content Include="Lib\gdal_wrap.dll" />
+    <Content Include="Lib\GeoAPI.dll" />
+    <Content Include="Lib\GeoAPI.xml" />
+    <Content Include="Lib\geos.dll" />
+    <Content Include="Lib\geos_c.dll" />
+    <Content Include="Lib\iconv.dll" />
+    <Content Include="Lib\libcurl.dll" />
+    <Content Include="Lib\libeay32.dll" />
+    <Content Include="Lib\libexpat.dll" />
+    <Content Include="Lib\libmysql.dll" />
+    <Content Include="Lib\libpq.dll" />
+    <Content Include="Lib\msvcp100.dll" />
+    <Content Include="Lib\msvcr100.dll" />
+    <Content Include="Lib\NetTopologySuite.dll" />
+    <Content Include="Lib\NetTopologySuite.IO.dll" />
+    <Content Include="Lib\NetTopologySuite.IO.GeoTools.dll" />
+    <Content Include="Lib\NetTopologySuite.IO.GeoTools.xml" />
+    <Content Include="Lib\NetTopologySuite.IO.MsSqlSpatial.dll" />
+    <Content Include="Lib\NetTopologySuite.IO.MsSqlSpatial.xml" />
+    <Content Include="Lib\NetTopologySuite.IO.PostGis.dll" />
+    <Content Include="Lib\NetTopologySuite.IO.PostGis.xml" />
+    <Content Include="Lib\NetTopologySuite.IO.ShapeFile.dll" />
+    <Content Include="Lib\NetTopologySuite.IO.ShapeFile.Extended.dll" />
+    <Content Include="Lib\NetTopologySuite.IO.ShapeFile.Extended.xml" />
+    <Content Include="Lib\NetTopologySuite.IO.ShapeFile.xml" />
+    <Content Include="Lib\NetTopologySuite.IO.SpatiaLite.dll" />
+    <Content Include="Lib\NetTopologySuite.IO.SpatiaLite.xml" />
+    <Content Include="Lib\NetTopologySuite.IO.xml" />
+    <Content Include="Lib\NetTopologySuite.xml" />
+    <Content Include="Lib\ogr_csharp.dll" />
+    <Content Include="Lib\ogr_wrap.dll" />
+    <Content Include="Lib\openjp2.dll" />
+    <Content Include="Lib\osr_csharp.dll" />
+    <Content Include="Lib\osr_wrap.dll" />
+    <Content Include="Lib\PowerCollections.dll" />
+    <Content Include="Lib\PowerCollections.xml" />
+    <Content Include="Lib\proj.dll" />
+    <Content Include="Lib\ProjNet.dll" />
+    <Content Include="Lib\ProjNet.xml" />
+    <Content Include="Lib\SharpMap.dll" />
+    <Content Include="Lib\SharpMap.Extensions.dll" />
+    <Content Include="Lib\SharpMap.Extensions.xml" />
+    <Content Include="Lib\SharpMap.Layers.BruTile.dll" />
+    <Content Include="Lib\SharpMap.UI.dll" />
+    <Content Include="Lib\SharpMap.UI.xml" />
+    <Content Include="Lib\SharpMap.xml" />
+    <Content Include="Lib\spatialite.dll" />
+    <Content Include="Lib\ssleay32.dll" />
+    <Content Include="Lib\xerces-c_2_8.dll" />
+    <Content Include="Lib\zlib1.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CTDDJYDS.CommonModule;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace ctddjyds.TestApplication
         public MainWindow()
         {
             InitializeComponent();
+            //NLogHelper.IsEnableLog = true;
+            //NLogHelper.Log(LogLevel.Info, "测试日志");
             this.DataContext = new TestPageViewModel();
         }
         private void ShellView_Loaded(object sender, RoutedEventArgs e)

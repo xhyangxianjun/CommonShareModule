@@ -109,12 +109,4 @@ namespace CTDDJYDS.CommonModule
             Log(LogLevel.Info, message);
         }
     }
-    public enum LogLevel
-    {
-        Info,
-        Debug,
-        Warn,
-        Error,
-        Fatal
-    }
 }
