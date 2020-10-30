@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CTDDJYDS.QuartzJob
+namespace TaskSchedulerManager
 {
     public class JobTest : IJob
     {

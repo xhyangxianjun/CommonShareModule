@@ -123,6 +123,10 @@
       <Project>{fa286411-e476-4bd0-abe9-7ae69226069c}</Project>
       <Name>CTDDJYDS.MetroChart</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\HMIControl\HMIControl.csproj">
+      <Project>{f9f0bfa7-0c4a-4c8c-b81c-2a0477cbf637}</Project>
+      <Name>HMIControl</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
