@@ -13,22 +13,23 @@ namespace Net.SignalRs
     {
 
 
-        public List<string> UserIdList1 { get; } = new List<string>();
+        public List<string> UserIdList { get; } = new List<string>();
         /// <summary>
-        /// 在连接上时
+        /// 客户端连接上时的操作
         /// </summary>
         /// <returns></returns>
         public override Task OnConnected()
         {
-            UserIdList1.Add(Context.ConnectionId);
-            ///向服务端写入一些数据
+            UserIdList.Add(Context.ConnectionId);
+            ///向客户端写入一些数据
             string dd=string.Format("客户端连接ID:" + Context.ConnectionId);
+            //Clients.Client(Context.ConnectionId).
             return base.OnConnected();
         }
 
         public override Task OnDisconnected(bool stopCalled)
         {
-            UserIdList1.Remove(Context.ConnectionId);
+            UserIdList.Remove(Context.ConnectionId);
             ///向服务端写入一些数据
             string dd = string.Format("客户端退出ID:" + Context.ConnectionId);
             return base.OnDisconnected(stopCalled);
@@ -36,7 +37,7 @@ namespace Net.SignalRs
 
         public override Task OnReconnected()
         {
-            UserIdList1.Add(Context.ConnectionId);
+            UserIdList.Add(Context.ConnectionId);
             return base.OnReconnected();
         }
     
