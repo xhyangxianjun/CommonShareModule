@@ -13,15 +13,15 @@ namespace Net.SignalRs
     {
         private IDisposable _signalRService = null;
         /// <summary>
-        /// 开启服务
+        /// 开启服务端
         /// </summary>
-        private void ServerStart(string serverUrl)
+        public void ServerStart(string serverUrl)
         {
             try
             {
                 //开启服务
                 _signalRService = WebApp.Start<SignalRStartup>(serverUrl);
-
+                
             }
             catch (Exception ex)
             {
@@ -36,7 +36,7 @@ namespace Net.SignalRs
         /// 停止服务
         /// </summary>
         /// <returns></returns>
-        private async Task StopServer()
+        public async Task StopServer()
         {
             if (_signalRService != null)
             {

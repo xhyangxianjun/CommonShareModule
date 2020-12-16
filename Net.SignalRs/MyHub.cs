@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace Net.SignalRs
 {
+    //默认访问的hub名是首字母变小写的名称，如果没有HubName的注解的话，这个hub的名是MyHub
+    [HubName("DataHub")]
     public class MyHub:Hub
     {
 
@@ -50,7 +52,8 @@ namespace Net.SignalRs
         [HubMethodName("Send")]
         public void Send(string identify, string model)
         {
-            Clients.All.addMessage(identify, model);
+            //AddMessage 客户端接收时的方法
+            Clients.All.AddMessage(identify, model);
         }
         /// <summary>
         /// 错误日志广播

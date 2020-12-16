@@ -17,7 +17,9 @@ namespace Net.SignalRs
         /// </summary>
         private void InitHub(string serverUrl)
         {
-            
+            string url = @"http://localhost:8082/signalr";
+            if (string.IsNullOrEmpty(serverUrl))
+                serverUrl = url;
             //创建连接对象，并实现相关事件
             Connection = new HubConnection(serverUrl);
 
@@ -28,6 +30,7 @@ namespace Net.SignalRs
             Connection.TransportConnectTimeout = new TimeSpan(3000);
 
             //绑定一个集线器
+            //根据hub名创建代理，一些操作由这个代理来做
             hubProxy = Connection.CreateHubProxy("SignalRHub");
             AddProtocal();
         }
@@ -66,6 +69,7 @@ namespace Net.SignalRs
 
         /// <summary>
         /// 对各种协议的事件进行处理
+        /// 注册收到数据时的方法名与执行的操作，类似于事件
         /// </summary>
         private void AddProtocal()
         {
