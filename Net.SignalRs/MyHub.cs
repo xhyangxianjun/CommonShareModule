@@ -55,6 +55,15 @@ namespace Net.SignalRs
             //AddMessage 客户端接收时的方法
             Clients.All.AddMessage(identify, model);
         }
+
+        //客户端发送数据时调用的方法
+        [HubMethodName("Hello")]
+        public void Hello(string name)
+        {
+            //这里有很多方法，就不一一写了
+            //SayHello 客户端接收时的方法
+            Clients.All.AddMessage($"欢迎{name}上线");
+        }
         /// <summary>
         /// 错误日志广播
         /// </summary>
@@ -82,7 +91,7 @@ namespace Net.SignalRs
         {
             //通过全局变量GlobalHost的ConnectionManager获取一个hub的引用
             var context = GlobalHost.ConnectionManager.GetHubContext<MyHub>();
-            context.Clients.All.SayHello($"欢迎{name}上线_version1.1");
+            context.Clients.All.AddMessage($"欢迎{name}上线_version1.1");
         }
     }
 }

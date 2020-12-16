@@ -4,7 +4,7 @@ using Microsoft.Owin;
 using Owin;
 using Microsoft.AspNet.SignalR;
 
-[assembly: OwinStartup(typeof(Net.SignalRs.SignalRStartup))]
+//[assembly: OwinStartup(typeof(Net.SignalRs.SignalRStartup))]
 
 namespace Net.SignalRs
 {

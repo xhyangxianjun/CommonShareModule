@@ -36,7 +36,7 @@ namespace Net.SignalRs
         /// 停止服务
         /// </summary>
         /// <returns></returns>
-        public async Task StopServer()
+        public void StopServer()
         {
             if (_signalRService != null)
             {

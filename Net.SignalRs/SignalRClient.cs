@@ -15,9 +15,9 @@ namespace Net.SignalRs
         /// <summary>
         /// 初始化服务连接
         /// </summary>
-        private void InitHub(string serverUrl)
+        public void InitHub(string serverUrl)
         {
-            string url = @"http://localhost:8082/signalr";
+            string url = @"http://localhost:12345";
             if (string.IsNullOrEmpty(serverUrl))
                 serverUrl = url;
             //创建连接对象，并实现相关事件
@@ -31,8 +31,15 @@ namespace Net.SignalRs
 
             //绑定一个集线器
             //根据hub名创建代理，一些操作由这个代理来做
-            hubProxy = Connection.CreateHubProxy("SignalRHub");
+            hubProxy = Connection.CreateHubProxy("DataHub");
+            //开始连接
+            StartConnect();
             AddProtocal();
+        }
+
+        public void InvokeMethod(string methodName,string dd)
+        {
+            hubProxy.Invoke(methodName, dd);
         }
 
         private void HubConnection_Succeed()
@@ -42,7 +49,7 @@ namespace Net.SignalRs
 
         private void HubConnection_Received(string obj)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void HubConnection_Closed()
@@ -57,7 +64,7 @@ namespace Net.SignalRs
                 //开始连接
                 await Connection.Start();
       
-                HubConnection_Succeed();//处理连接后的初始化
+                //HubConnection_Succeed();//处理连接后的初始化
 
             }
             catch (Exception ex)
@@ -77,7 +84,7 @@ namespace Net.SignalRs
             //注册收到数据时的方法名与执行的操作，类似于事件
             hubProxy.On<string>("AddMessage", (tt) =>
             {
-
+                Console.WriteLine(tt);
             });
 
             //
