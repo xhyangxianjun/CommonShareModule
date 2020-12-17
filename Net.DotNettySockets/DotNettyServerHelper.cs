@@ -99,7 +99,12 @@ namespace Net.DotNettySockets
                 bootstrap = null;
             }
         }
-
+        /// <summary>
+        /// 向指定的客户端IP发送数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <param name="adressPort"></param>
         public async void SendServerData<T>(T obj, string adressPort)
         {
             try

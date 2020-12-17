@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SocketApp
 {
-    public partial class SocketForm : Form
+    public partial class DotNettySocketForm : Form
     {
-        public SocketForm()
+        public DotNettySocketForm()
         {
             InitializeComponent();
         }
@@ -39,6 +39,11 @@ namespace SocketApp
         private void SocketForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             DotNettyServerHelper.Instance.StopNettyServerAsync();
+        }
+        private char openSick = (char)4;
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DotNettyServerHelper.Instance.SendServerData<char>(openSick, "192.168.1.123");
         }
     }
 }

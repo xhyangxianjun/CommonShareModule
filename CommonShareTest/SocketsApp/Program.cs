@@ -16,7 +16,7 @@ namespace SocketApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainForm());
-            Application.Run(new SocketForm());
+            Application.Run(new DotNettySocketForm());
         }
     }
 }

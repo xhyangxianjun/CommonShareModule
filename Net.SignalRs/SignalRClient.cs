@@ -54,7 +54,7 @@ namespace Net.SignalRs
 
         private void HubConnection_Closed()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private async Task StartConnect()

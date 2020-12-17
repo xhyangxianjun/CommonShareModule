@@ -66,19 +66,19 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SocketForm.cs">
+    <Compile Include="DotNettySocketForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SocketForm.Designer.cs">
-      <DependentUpon>SocketForm.cs</DependentUpon>
+    <Compile Include="DotNettySocketForm.Designer.cs">
+      <DependentUpon>DotNettySocketForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SocketForm.resx">
-      <DependentUpon>SocketForm.cs</DependentUpon>
+    <EmbeddedResource Include="DotNettySocketForm.resx">
+      <DependentUpon>DotNettySocketForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

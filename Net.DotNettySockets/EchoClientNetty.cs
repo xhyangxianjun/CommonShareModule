@@ -69,7 +69,7 @@ namespace Net.DotNettySockets
                     if (r == null)
                         throw new InvalidOperationException();
                     initialMessage.WriteBytes(Encoding.UTF8.GetBytes(r)); // (2)
-                                                                          // 将缓冲区数据流写入到管道中
+                     // 将缓冲区数据流写入到管道中
                     await clientChannel.WriteAndFlushAsync(initialMessage); // (3)
                     //if (r.Contains("bye"))
                     //    break;
