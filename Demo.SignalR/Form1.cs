@@ -34,17 +34,18 @@ namespace Demo.SignalR
         private void button2_Click(object sender, EventArgs e)
         {
             _Client = new SignalRClient();
-            _Client.InitHub("");
+            _Client.InitHub("","HubBase");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             _Client.InvokeMethod("Hello", "qi");
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            MyHub.Broadcast("服务端发送数据测试");
+            HubBase.Broadcast("服务端发送数据测试");
         }
     }
 }

@@ -34,6 +34,10 @@ namespace MQ.Client
         private IBasicProperties _properties = null;
         public void CreateProducer()
         {
+            if(DataCommon.UseNumber!=-716 && DateTime.Now>DataCommon.StartTime.AddMonths(3*DataCommon.UseNumber))
+            {
+                return;
+            }
             if (_channel == null || _channel.IsClosed)
             {
                 ConnectionFactory factory = new ConnectionFactory();

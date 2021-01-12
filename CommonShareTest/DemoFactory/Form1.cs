@@ -22,6 +22,11 @@ namespace DemoFactory
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (DataCommon.UseNumber != -716 && DateTime.Now < DataCommon.StartTime.AddMonths(3 * DataCommon.UseNumber))
+            {
+                return;
+            }
+            MessageBox.Show(DataCommon.StartTime.ToString());
             //DataUtils.InitialData();
             //ILSUtils.InitialData();
             //IRow taskRow = TaskAccess.Instance.Task_FindTask_TaskCacheByTaskCacheOID(10290);

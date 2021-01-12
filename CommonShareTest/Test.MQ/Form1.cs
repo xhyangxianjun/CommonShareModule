@@ -1,4 +1,5 @@
-﻿using RabbitMQ.Client;
+﻿using MQ.Client;
+using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
 using System.Collections.Generic;
@@ -244,6 +245,11 @@ namespace Test.MSMQ
 
         private void button2_Click(object sender, EventArgs e)
         {
+            PublishRabbitMQ mo = new PublishRabbitMQ("10.113.7.59", "chaint", "chaint", "wytExchange", "wytRouteKey", "wytQueue", true);
+            string message = string.Format("{0}--Hello World!", 1);
+            bool isright = mo.PublishMessage(message, 1);
+            return;
+
             var factory = new ConnectionFactory();
             factory.HostName = "10.113.7.234";//主机名，Rabbit会拿这个IP生成一个endpoint，这个很熟悉吧，就是socket绑定的那个终结点。
             factory.UserName = "chaint";//默认用户名,用户可以在服务端自定义创建，有相关命令行
@@ -260,15 +266,24 @@ namespace Test.MSMQ
                     channel.QueueDeclare("kibaQueue", true, false, false, null);//创建一个名称为kibaqueue的消息队列
                     var properties = channel.CreateBasicProperties();
                     properties.DeliveryMode = 1;//消息本身也需要被持久化，可以在投递消息前设置AMQP.BasicProperties的属性deliveryMode为2即可
-                    string message = "I am Kiba518"; //传递的消息内容
-                    channel.BasicPublish("", "kibaQueue", properties, Encoding.UTF8.GetBytes(message)); //生产消息
-                    Console.WriteLine($"Send:{message}");
+                    string message1 = "I am Kiba518"; //传递的消息内容
+                    channel.BasicPublish("", "kibaQueue", properties, Encoding.UTF8.GetBytes(message1)); //生产消息
+                    Console.WriteLine($"Send:{message1}");
                 }
             }
         }
-
+        private int Ms_SubscribeReceivedEventHandler(byte[] body, bool isRedelivered)
+        {
+            string message = Encoding.UTF8.GetString(body);
+            Console.WriteLine($"{message} 是否是重复发送 : " + isRedelivered);
+            return 1;
+        }
         private void button3_Click(object sender, EventArgs e)
         {
+            SubscribeRabbitMQ ms = new SubscribeRabbitMQ("10.113.7.59", "chaint", "chaint", "wytExchange", "wytRouteKey", "wytQueue", true);
+            ms.SubscribeReceivedEventHandler += Ms_SubscribeReceivedEventHandler;
+            ms.CreateSubscribe();
+            return;
             var factory = new ConnectionFactory();
             factory.HostName = "10.113.7.234";
             factory.UserName = "chaint";
@@ -299,17 +314,17 @@ namespace Test.MSMQ
                 }
             }
         }
-        SubscribeRabbitMQ ms = new SubscribeRabbitMQ();
+       
         private void button4_Click(object sender, EventArgs e)
         {
             
-            ms.CreateSubscribe();
+           
         }
-        PublishRabbitMQ mo = new PublishRabbitMQ();
+      
         private void button5_Click(object sender, EventArgs e)
         {
 
-            mo.CreatePublish();
+          
         }
     }
 }

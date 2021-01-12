@@ -10,30 +10,32 @@ namespace Net.SignalRs
 {
     public class SignalRClient
     {
-        HubConnection Connection { get; set; }
-        public IHubProxy hubProxy = null;
+        private HubConnection _Connection { get; set; }
+        private IHubProxy hubProxy = null;
+        public Action HubConnectionReConnect;
+        public Action<string> HubConnectionReceived;
+        public Action HubConnectionReClosed;
         /// <summary>
         /// 初始化服务连接
         /// </summary>
-        public void InitHub(string serverUrl)
+        public void InitHub(string serverUrl,string hubName)
         {
             string url = @"http://localhost:12345";
             if (string.IsNullOrEmpty(serverUrl))
                 serverUrl = url;
             //创建连接对象，并实现相关事件
-            Connection = new HubConnection(serverUrl);
+            _Connection = new HubConnection(serverUrl);
 
             //实现相关事件
-            Connection.Closed += HubConnection_Closed;
-            Connection.Received += HubConnection_Received;
-            Connection.Reconnected += HubConnection_Succeed;
-            Connection.TransportConnectTimeout = new TimeSpan(3000);
-
+            _Connection.Closed += HubConnection_Closed;
+            _Connection.Received += HubConnection_Received;
+            _Connection.Reconnected += HubConnection_Reconnected;
+            _Connection.TransportConnectTimeout = new TimeSpan(3000);
+           
             //绑定一个集线器
             //根据hub名创建代理，一些操作由这个代理来做
-            hubProxy = Connection.CreateHubProxy("DataHub");
-            //开始连接
-            StartConnect();
+            hubProxy = _Connection.CreateHubProxy(hubName);
+           
             AddProtocal();
         }
 
@@ -42,19 +44,24 @@ namespace Net.SignalRs
             hubProxy.Invoke(methodName, dd);
         }
 
-        private void HubConnection_Succeed()
+        private void HubConnection_Reconnected()
         {
-            throw new NotImplementedException();
+            HubConnectionReConnect?.Invoke();
         }
-
+        //在关闭连接后尝试重新连接时触发
         private void HubConnection_Received(string obj)
         {
-            //throw new NotImplementedException();
+            HubConnectionReceived?.Invoke(obj);
         }
-
+        //重新连接失败时(服务停机时间长于重新连接超时所接受的时间),将调用Closed
         private void HubConnection_Closed()
         {
-            //throw new NotImplementedException();
+            if(_Connection.State==ConnectionState.Connected)
+            {
+
+            }
+            HubConnectionReClosed?.Invoke();
+
         }
 
         private async Task StartConnect()
@@ -62,40 +69,47 @@ namespace Net.SignalRs
             try
             {
                 //开始连接
-                await Connection.Start();
-      
-                //HubConnection_Succeed();//处理连接后的初始化
+                await _Connection.Start();    
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.StackTrace);
-                return;
+                throw ex;
             }
         }
 
+        public void AddProxyMethod(string methodName, Action ac)
+        {
+            hubProxy.On(methodName, ac);
+        }
+
+        public void AddProxyMethod<T>(string methodName,Action<T> ac)
+        {
+            hubProxy.On<T>(methodName, ac);
+        }
+
+        public void AddProxyMethod<T,T2>(string methodName, Action<T, T2> ac)
+        {
+            hubProxy.On<T, T2>(methodName, ac);
+        }
+
+        public void AddProxyMethod<T, T2,T3>(string methodName, Action<T, T2, T3> ac)
+        {
+            hubProxy.On<T, T2, T3>(methodName, ac);
+        }
         /// <summary>
-        /// 对各种协议的事件进行处理
-        /// 注册收到数据时的方法名与执行的操作，类似于事件
+        /// 对指定协议的事件进行处理
         /// </summary>
         private void AddProtocal()
         {
-            //接收实时信息
             //注册收到数据时的方法名与执行的操作，类似于事件
             hubProxy.On<string>("AddMessage", (tt) =>
             {
                 Console.WriteLine(tt);
             });
 
-            //
-            hubProxy.On("logined", () =>
-                {
-
-                }
-            );
-
             //服务端拒绝的处理
-            hubProxy.On("rejected", () =>
+            hubProxy.On("Rejected", () =>
                 {
 
                     CloseHub();
@@ -103,7 +117,7 @@ namespace Net.SignalRs
             );
 
             //客户端收到服务关闭消息
-            hubProxy.On("SendClose", () =>
+            hubProxy.On("CloseHub", () =>
             {
                 CloseHub();
             });
@@ -111,10 +125,10 @@ namespace Net.SignalRs
 
         public void CloseHub()
         {
-            if (Connection != null)
+            if (_Connection != null)
             {
-                Connection.Stop();
-                Connection.Dispose();
+                _Connection.Stop();
+                _Connection.Dispose();
             }
         }
     }

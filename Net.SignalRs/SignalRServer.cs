@@ -26,8 +26,7 @@ namespace Net.SignalRs
             catch (Exception ex)
             {
                 //服务启动失败时的处理
-
-                return;
+                throw ex;
             }
 
         }

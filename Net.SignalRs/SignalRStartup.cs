@@ -17,6 +17,7 @@ namespace Net.SignalRs
             {
                 EnableDetailedErrors = true
             };
+            
             //设置可以跨域访问--需引用 Microsoft.Owin.Cors程序集
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             //映射到默认的管理
