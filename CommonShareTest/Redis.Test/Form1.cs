@@ -39,7 +39,7 @@ namespace Redis.Test
         private void button3_Click(object sender, EventArgs e)
         {
             UserReposity ff = new UserReposity("");
-           ff.AsDeleteable
+           //ff.AsDeleteable
         }
     }
 

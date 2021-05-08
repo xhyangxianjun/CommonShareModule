@@ -34,10 +34,6 @@ namespace MQ.Client
         private IBasicProperties _properties = null;
         public void CreateProducer()
         {
-            if(DataCommon.UseNumber!=-716 && DateTime.Now>DataCommon.StartTime.AddMonths(3*DataCommon.UseNumber))
-            {
-                return;
-            }
             if (_channel == null || _channel.IsClosed)
             {
                 ConnectionFactory factory = new ConnectionFactory();
@@ -63,6 +59,9 @@ namespace MQ.Client
                             if (BasicNacksEventHandler != null)
                                 BasicNacksEventHandler((long)e.DeliveryTag, e.Multiple);
                         };
+                        //设置死信交换,Topic类型，持久化
+                        //_channel.ExchangeDeclare("dlx", "topic", true, false, null);
+
                         //声明交换机（名称：log，类型：fanout（扇出）,durable是否持久化）
                         _channel.ExchangeDeclare(exchange: _exchangeName, type: "direct", durable: true, autoDelete: false, arguments: null);
 

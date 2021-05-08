@@ -14,7 +14,7 @@ namespace Net.SignalRs
         private IHubProxy hubProxy = null;
         public Action HubConnectionReConnect;
         public Action<string> HubConnectionReceived;
-        public Action HubConnectionReClosed;
+        public Action HubConnectionClosed;
         /// <summary>
         /// 初始化服务连接
         /// </summary>
@@ -30,25 +30,31 @@ namespace Net.SignalRs
             _Connection.Closed += HubConnection_Closed;
             _Connection.Received += HubConnection_Received;
             _Connection.Reconnected += HubConnection_Reconnected;
-            _Connection.TransportConnectTimeout = new TimeSpan(3000);
+            _Connection.TransportConnectTimeout = new TimeSpan(DataCommon.ClientConnectTimeout);
            
             //绑定一个集线器
             //根据hub名创建代理，一些操作由这个代理来做
             hubProxy = _Connection.CreateHubProxy(hubName);
            
-            AddProtocal();
+            //AddProtocal();
         }
 
-        public void InvokeMethod(string methodName,string dd)
+        public Task InvokeMethod(string methodName, params object[] args)
         {
-            hubProxy.Invoke(methodName, dd);
+            return hubProxy.Invoke(methodName, args);
         }
 
+        public Task<T> InvokeMethod<T>(string method, params object[] args)
+        {
+            return hubProxy.Invoke<T>(method, args);
+        }
+
+        //在关闭连接后尝试重新连接时触发
         private void HubConnection_Reconnected()
         {
             HubConnectionReConnect?.Invoke();
         }
-        //在关闭连接后尝试重新连接时触发
+        
         private void HubConnection_Received(string obj)
         {
             HubConnectionReceived?.Invoke(obj);
@@ -56,20 +62,20 @@ namespace Net.SignalRs
         //重新连接失败时(服务停机时间长于重新连接超时所接受的时间),将调用Closed
         private void HubConnection_Closed()
         {
-            if(_Connection.State==ConnectionState.Connected)
-            {
+            //if(_Connection.State==ConnectionState.Connected)
+            //{
 
-            }
-            HubConnectionReClosed?.Invoke();
+            //}
+            HubConnectionClosed?.Invoke();
 
         }
 
-        private async Task StartConnect()
+        public Task StartConnect()
         {
             try
             {
                 //开始连接
-                await _Connection.Start();    
+                return _Connection.Start();    
 
             }
             catch (Exception ex)
@@ -97,6 +103,12 @@ namespace Net.SignalRs
         {
             hubProxy.On<T, T2, T3>(methodName, ac);
         }
+
+        public void AddProxyMethod<T, T2, T3,T4>(string methodName, Action<T, T2, T3,T4> ac)
+        {
+            hubProxy.On<T, T2, T3,T4>(methodName, ac);
+        }
+
         /// <summary>
         /// 对指定协议的事件进行处理
         /// </summary>

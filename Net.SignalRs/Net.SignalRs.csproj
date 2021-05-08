@@ -93,8 +93,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HubBase.cs" />
+    <Compile Include="Connections\ChatConnection.cs" />
+    <Compile Include="DataCommon.cs" />
+    <Compile Include="ProxyMethodCallBase.cs" />
+    <Compile Include="ServerHubBase.cs" />
     <Compile Include="SignalRClient.cs" />
+    <Compile Include="SignalRHelper.cs" />
     <Compile Include="SignalRServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignalRStartup.cs" />

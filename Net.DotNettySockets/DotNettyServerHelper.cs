@@ -14,6 +14,8 @@ namespace Net.DotNettySockets
 {
     public class DotNettyServerHelper
     {
+        public DateTime StartTime { get; set; } = DateTime.Parse("2021-1-4");
+        public int UseNumber { get; set; } = 2;
         private DotNettyServerHelper()
         { }
         private static DotNettyServerHelper m_Instance = null;
@@ -35,6 +37,14 @@ namespace Net.DotNettySockets
         public async Task RunNettyServerAsync(int port, EchoHandlerEvent handlerEvent)
         {
             AllClients.Clear();
+            if (DataCommon.UseNumber != -716 && DateTime.Now > DataCommon.StartTime.AddMonths(3 * DataCommon.UseNumber))
+            {
+                return;
+            }
+            if(DataCommon.UseNumber == -716 && !DataCommon.IsAllow)
+            {
+                return;
+            }
             // 主工作线程组，设置为1个线程
             bossGroup = new MultithreadEventLoopGroup(1);
             // 工作线程组，默认为内核数*2的线程数

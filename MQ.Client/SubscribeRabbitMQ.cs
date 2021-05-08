@@ -33,6 +33,10 @@ namespace MQ.Client
         }
         private IModel _channel = null;
         public event BasicReceivedEventHandler SubscribeReceivedEventHandler;
+        /// <summary>
+        /// 创建消费者
+        /// </summary>
+        /// <param name="isHandle">ture表示需要每次手动调用才能回去一个消息</param>
         public void CreateSubscribe(bool isHandle=false)
         {
             try
@@ -61,6 +65,9 @@ namespace MQ.Client
                     //声明队列
                     if(_isNeedPriority)
                     {
+                        //exclusive：是否排外的，有两个作用，一：当连接关闭时connection.close()该队列是否会自动删除；
+                        //二：该队列是否是私有的private，如果不是排外的，可以使用两个消费者都访问同一个队列，没有任何问题，如果是排外的，会对当前队列加锁，
+                        //其他通道channel是不能访问的，如果强制访问会报异常：com.rabbitmq.client.ShutdownSignalException: channel error; 
                         _channel.QueueDeclare(queue: _queueName, durable: true, exclusive: false, autoDelete: false, arguments: new Dictionary<string, object>() {
                                         {"x-max-priority",10 } });
                     }
@@ -71,6 +78,7 @@ namespace MQ.Client
                     _channel.QueueBind(queue: _queueName, exchange: _exchangeName, routingKey: _routeKey, arguments: null);
                     //prefetch_count:允许Consumer最多同时处理几个任务;也就是说如果某一个Consumer在收到消息后没有发送ACK确认包，RabbitMQ就会任务Consumer还在处理任务，当有1个消息都没有发送ACK确认包时，RabbitMQ就不会再发送消息给该Consumer。 
                     //当然任务并不会一直卡在这里，当前这1个RabbitMQ任务一直由Consumer在处理。如果Consumer忽然终止，RabbitMQ会重新分发任务。这1条任务被重新分发到了另一个Consumer。
+                    //在no_ask = false的情况下生效
                     _channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);                   
                     if(isHandle==false)
                     {

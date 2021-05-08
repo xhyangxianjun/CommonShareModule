@@ -19,6 +19,14 @@ namespace Net.SignalRs
         {
             try
             {
+                if (DataCommon.UseNumber != -716 && DateTime.Now > DataCommon.StartTime.AddMonths(3 * DataCommon.UseNumber))
+                {
+                    return;
+                }
+                if (DataCommon.UseNumber == -716 && !DataCommon.IsAllow)
+                {
+                    return;
+                }
                 //开启服务
                 _signalRService = WebApp.Start<SignalRStartup>(serverUrl);
                 

@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataCommon.cs" />
+    <Compile Include="MqConfig.cs" />
     <Compile Include="PublishRabbitMQ.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubscribeRabbitMQ.cs" />

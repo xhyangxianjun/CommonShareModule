@@ -110,6 +110,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataCommon.cs" />
     <Compile Include="DotNettyServerHelper.cs" />
     <Compile Include="EchoClientHandler.cs" />
     <Compile Include="EchoClientNetty.cs" />
